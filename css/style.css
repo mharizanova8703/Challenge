@@ -1,0 +1,607 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/*--------------------------------------*/
+/*            Core Styles               */
+/*--------------------------------------*/
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-family: "Montserrat", sans-serif;
+  min-width: 198px;
+}
+
+.logo {
+  margin-bottom: -2rem;
+  margin-left: 5rem;
+}
+
+/*--------------------------------------*/
+/*    Contains Header, Nav, & Logo      */
+/*--------------------------------------*/
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*--------------------------------------*/
+/* HEADER: Position relative to help... */
+/*    ... poitioning elements absolute  */
+/*--------------------------------------*/
+header {
+  padding: 1em 0;
+  position: relative;
+}
+
+/*------------------------------------------*/
+/* Allows multiple floats in same element   */
+/*------------------------------------------*/
+header::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/*--------------------------------------*/
+/*               LOGO                   */
+/*--------------------------------------*/
+.logo #logo-first {
+  /* Effects the whole logo, but #logo-last has changes */
+  float: left;
+  /* Starting position of "JASON" for logo */
+  color: #00b3b3;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.logo #logo-last {
+  /* Changes to the logo for "SUTTON", This is starting Position */
+  float: left;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #f2f2f2;
+  padding-bottom: 20px;
+}
+
+.logo:hover #logo-last {
+  /* Logo colors switch on hover */
+  margin: 0;
+  color: #00b3b3;
+}
+
+.logo:hover #logo-first {
+  /* Logo colors switch on hover */
+  margin: 0;
+  padding-bottom: 20px;
+  color: #f2f2f2;
+}
+
+/*--------------------------------------*/
+/*            Navigation                */
+/*--------------------------------------*/
+.site-nav {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  background: #a6a6a6;
+  height: 0px;
+  overflow: hidden;
+}
+
+.site-nav-open {
+  height: auto;
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Removes li bullets */
+}
+
+.site-nav li {
+  border-bottom: 1px solid #8c8c8c;
+  /* border beneath nav li */
+}
+
+.site-nav li:last-child {
+  /* removes border from last nav li */
+  border: none;
+}
+
+.site-nav a {
+  /* Displays nav links as block for smaller screens */
+  display: block;
+  padding: 2em 2em 2em 1.5em;
+  /* padding for links */
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #00b3b3;
+  color: #4d4d4d;
+}
+
+/*--------------------------------------*/
+/*   ICON styling for smaller screens   */
+/*--------------------------------------*/
+.site-nav-icon {
+  display: inline-block;
+  /* allows margin changes */
+  font-size: 1.5em;
+  margin-right: 1em;
+  width: 1em;
+  /* width lines the icons up */
+  text-align: right;
+  color: rgba(255, 255, 255, 0.35);
+  /* white with low opacity to make icons less bright */
+}
+
+/*--------------------------------------*/
+/* Acts as btn & contains hamburger     */
+/*--------------------------------------*/
+.menu-toggle {
+  padding: 1em;
+  position: absolute;
+  top: 1.7em;
+  right: 1em;
+  cursor: pointer;
+}
+
+/*--------------------------------------*/
+/*   Styles the hamburger for btn       */
+/*--------------------------------------*/
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  background: white;
+  height: 3px;
+  width: 1.75em;
+  border-radius: 2px;
+  transition: all ease-in-out 500ms;
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger (top line)     */
+/*--------------------------------------*/
+.hamburger::before {
+  transform: translateY(-7px);
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger bottom line    */
+/*--------------------------------------*/
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+/*--------------------------------------*/
+/* When Nav menu is open, hamburger = X */
+/*--------------------------------------*/
+.open .hamburger {
+  transform: rotate(45deg);
+  background: #ffc299;
+}
+
+/*--------------------------------------*/
+/* Before hamburger line is invisible   */
+/*--------------------------------------*/
+.open .hamburger::before {
+  opacity: 0;
+}
+
+/*--------------------------------------*/
+/* Animates after line to create an X   */
+/*--------------------------------------*/
+.open .hamburger::after {
+  transform: translateY(-3px) rotate(-90deg);
+  background: #ffc299;
+}
+
+/*--------------------------------------*/
+/*    For Device (Screens > 700px )     */
+/*--------------------------------------*/
+@media (min-width: 700px) {
+  .menu-toggle {
+    /* Removes hamburger menu */
+    display: none;
+  }
+
+  .site-nav {
+    /* Positions site nav & removes background color */
+    height: auto;
+    position: relative;
+    background: transparent;
+    font-weight: 300;
+  }
+
+  .site-nav li {
+    /* inline-block and removes border from bottom */
+    display: inline-block;
+    border: none;
+  }
+
+  .site-nav a {
+    /* Adds spacing between Nav links */
+    padding: 0;
+    margin-left: 1em;
+  }
+
+  .site-nav a:hover,
+.site-nav a:focus {
+    /* Changes font color to light blue */
+    background: transparent;
+    font-weight: 800;
+    color: #00b3b3;
+  }
+
+  .site-nav .site-nav-icon {
+    /* Removes Font Awesome Icons for larger screens */
+    display: none;
+  }
+}
+@media screen and (max-width: 680px) {
+  header {
+    background-color: #ada7ff;
+  }
+
+  .logo {
+    margin-top: -1.7rem;
+    margin-left: 0;
+  }
+}
+.font-b7 {
+  font-size: 0.7rem;
+}
+
+.font-b9 {
+  font-size: 0.9rem;
+}
+
+.font-xs {
+  font-size: 1rem;
+}
+
+.font-s {
+  font-size: 1.1rem;
+}
+
+.font-sm {
+  font-size: 1.2rem;
+}
+
+.font-smx {
+  font-size: 1.3rem;
+}
+
+.font-smd {
+  font-size: 1.5rem;
+}
+
+.font-lgsm {
+  font-size: 1.6rem;
+}
+
+.font-md {
+  font-size: 1.8rem;
+}
+
+.font-mmd {
+  font-size: 2.1rem;
+}
+
+.font-lmd {
+  font-size: 2.4rem;
+}
+
+.font-xlmd {
+  font-size: 2.8rem;
+}
+
+.font-xxlmd {
+  font-size: 3.2rem;
+}
+
+.font-slg {
+  font-size: 3.6rem;
+}
+
+.font-smlg {
+  font-size: 3.8rem;
+}
+
+.font-mlg {
+  font-size: 4rem;
+}
+
+.font-llg {
+  font-size: 4.6rem;
+}
+
+.font-lg {
+  font-size: 6rem;
+}
+
+.font-xlg {
+  font-size: 7.2rem;
+}
+
+.size-150 {
+  width: 150px;
+}
+
+.mx-lg-7 {
+  margin-left: 7rem !important;
+  margin-right: 7rem !important;
+}
+
+@media screen and (max-width: 1181px) {
+  .font-md {
+    font-size: 1.7rem;
+  }
+
+  .font-mmd {
+    font-size: 2rem;
+  }
+
+  .font-lmd {
+    font-size: 2.3rem;
+  }
+
+  .font-xlmd {
+    font-size: 2.6rem;
+  }
+
+  .font-xxlmd {
+    font-size: 2.9rem;
+  }
+
+  .font-slg {
+    font-size: 3.2rem;
+  }
+
+  .font-smlg {
+    font-size: 3.5rem;
+  }
+
+  .font-mlg {
+    font-size: 3.6rem;
+  }
+
+  .font-llg {
+    font-size: 4.4rem;
+  }
+
+  .font-lg {
+    font-size: 5.4rem;
+  }
+
+  .font-xlg {
+    font-size: 6.6rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .font-slg {
+    font-size: 3rem;
+  }
+
+  .font-smlg {
+    font-size: 3.2rem;
+  }
+
+  .font-mlg {
+    font-size: 3.3rem;
+  }
+
+  .font-llg {
+    font-size: 4rem;
+  }
+
+  .font-lg {
+    font-size: 5rem;
+  }
+
+  .font-xlg {
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .font-xlg {
+    font-size: 5.6rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .font-xs {
+    font-size: 0.9rem;
+  }
+
+  .font-sm {
+    font-size: 1.1rem;
+  }
+
+  .font-smx {
+    font-size: 1rem;
+  }
+
+  .font-smd {
+    font-size: 1.1rem;
+  }
+
+  .font-lgsm {
+    font-size: 1.3rem;
+  }
+
+  .font-slg {
+    font-size: 2.8rem;
+  }
+
+  .font-smlg {
+    font-size: 2.9rem;
+  }
+
+  .font-mlg {
+    font-size: 3rem;
+  }
+
+  .font-llg {
+    font-size: 3.5rem;
+  }
+
+  .font-lg {
+    font-size: 4.4rem;
+  }
+
+  .font-xlg {
+    font-size: 5.4rem;
+  }
+
+  .font-md {
+    font-size: 1.1rem;
+  }
+
+  .font-mmd {
+    font-size: 1.7rem;
+  }
+
+  .font-lmd {
+    font-size: 2rem;
+  }
+
+  .font-xlmd {
+    font-size: 2.4rem;
+  }
+
+  .font-xxlmd {
+    font-size: 2rem;
+  }
+}
+.text-purple {
+  color: #ada7ff;
+}
+
+.text-brown {
+  color: #404040;
+}
+
+.border-r-c {
+  border-radius: 5rem;
+}
+
+.h {
+  height: 330px;
+}
+
+.bg-purple {
+  background-color: #ada7ff;
+}
+
+.w {
+  width: 20px;
+  height: 20px;
+}
+
+.b-r {
+  border-radius: 1rem;
+}
+
+.img_pet {
+  width: 100%;
+}
+
+.font-dosis-semi {
+  font-family: "Dosis", sans-serif;
+  font-weight: 600;
+}
+
+.font-dosis-regular {
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+}
+
+#form .form-control {
+  color: #ada7ff !important;
+  border: 2px solid #ada7ff !important;
+  border-radius: 1rem 0rem 0rem 1rem;
+}
+#form .input-group-append {
+  background-color: #ada7ff;
+  border: transparent !important;
+  border-radius: 1rem;
+}
+#form .btn-outline-secondary {
+  color: white;
+}
+#form button {
+  border: transparent !important;
+}
+#form .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: -12px;
+}
+#form .btn {
+  padding: 0.9rem;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 680px) {
+  #form {
+    margin-top: -7rem;
+  }
+}
+#main .desktop {
+  visibility: visible;
+}
+#main .mobile {
+  visibility: hidden;
+}
+#main .img_pet {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 975px) {
+  #main .img_pet {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 680px) {
+  #main .desktop {
+    visibility: hidden;
+  }
+  #main .mobile {
+    visibility: visible;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #main .img_pet {
+    width: 85%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

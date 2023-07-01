@@ -1,0 +1,36 @@
+#form {
+    .form-control {
+        color: #ada7ff !important;
+        border: 2px solid #ada7ff !important;
+        border-radius: 1rem 0rem 0rem 1rem;
+    }
+
+    .input-group-append {
+        background-color: #ada7ff;
+        border: transparent !important;
+        border-radius: 1rem;
+    }
+
+    .btn-outline-secondary {
+        color: white;
+    }
+
+    button {
+        border: transparent !important;
+    }
+
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+        margin-left: -12px;
+    }
+
+    .btn {
+        padding: 0.9rem;
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    #form {
+        margin-top: -7rem;
+    }
+}
